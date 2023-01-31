@@ -1,0 +1,9 @@
+$theme-colors: (
+  "shade-green": #a3a380,
+  "shade-yellow": #d6ce93,
+  "light-shade-green": #eef0ce,
+  "dark": #333333,
+);
+
+/* import bootstrap to set changes */
+@import "~bootstrap/scss/bootstrap";
