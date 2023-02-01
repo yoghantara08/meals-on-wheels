@@ -1,6 +1,5 @@
 import React from "react";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
-import ReactDOM from "react-dom/client";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
@@ -26,7 +25,4 @@ const App = () => {
     </Router> 
   );
 }
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App />);
 export default App;
