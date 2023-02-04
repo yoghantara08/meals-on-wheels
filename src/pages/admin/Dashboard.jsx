@@ -16,14 +16,11 @@ import {
   assignOrderToPartner,
   assignOrderToRider,
 } from "../../api/admin-api";
+import { donate, donationList } from "../../api/donation-api";
 
 const Dashboard = () => {
   const testAPI = () => {
-    assignOrderToRider(
-      adminToken,
-      "63dcb63d08330e47c906ddbf",
-      "63db7162dd210b73adc54bfa"
-    )
+    donationList()
       .then((res) => {
         console.log(res);
       })
