@@ -1,7 +1,8 @@
 import React from "react";
+import MainLayout from "../../components/layout/MainLayout";
 
 const Donate = () => {
-  return <div>Donate</div>;
+  return <MainLayout>tes</MainLayout>;
 };
 
 export default Donate;

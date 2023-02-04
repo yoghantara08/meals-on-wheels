@@ -1,7 +1,8 @@
 import React from "react";
+import MainLayout from "../../components/layout/MainLayout";
 
 const SearchMeal = () => {
-  return <div>SearchMeal</div>;
+  return <MainLayout>tes</MainLayout>;
 };
 
 export default SearchMeal;

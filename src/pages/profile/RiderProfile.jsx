@@ -1,7 +1,8 @@
 import React from "react";
+import MainLayout from "../../components/layout/MainLayout";
 
 const RiderProfile = () => {
-  return <div>RiderProfile</div>;
+  return <MainLayout>tes</MainLayout>;
 };
 
 export default RiderProfile;

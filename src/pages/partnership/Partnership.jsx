@@ -1,7 +1,8 @@
 import React from "react";
+import MainLayout from "../../components/layout/MainLayout";
 
 const Partnership = () => {
-  return <div>Partnership</div>;
+  return <MainLayout>tes</MainLayout>;
 };
 
 export default Partnership;

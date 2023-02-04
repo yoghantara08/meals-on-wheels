@@ -1,7 +1,8 @@
 import React from "react";
+import MainLayout from "../../components/layout/MainLayout";
 
 const MealDetails = () => {
-  return <div>MealDetails</div>;
+  return <MainLayout>tes</MainLayout>;
 };
 
 export default MealDetails;
