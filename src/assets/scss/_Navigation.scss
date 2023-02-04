@@ -28,4 +28,17 @@
   .btn {
     border-radius: 10px;
   }
+
+  .btn-hover {
+    transition: 0.3s ease;
+  }
+
+  .btn-hover:checked,
+  .btn-hover:hover,
+  .btn-hover:active,
+  .btn-hover.active {
+    background-color: $c-dark;
+    border: 1px solid $c-dark;
+    color: $c-white !important;
+  }
 }

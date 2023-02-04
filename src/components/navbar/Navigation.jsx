@@ -6,7 +6,7 @@ import "../../assets/scss/index.scss";
 const Navigation = () => {
   return (
     <>
-      <nav className="navbar bg-shade-green navbar-expand-lg navbar-light py-4 fixed-top">
+      <nav className="navbar bg-shade-yellow navbar-expand-lg navbar-light py-4 fixed-top">
         <div className="container">
           <NavLink to="/" className="navbar-brand fw-bold">
             MoW
@@ -82,7 +82,7 @@ const Navigation = () => {
                 <NavLink
                   to="/login"
                   activeclassname="active"
-                  className="nav-link btn btn-outline-darken text-darken py-2 px-5 me-lg-4 my-2 my-lg-0"
+                  className="nav-link btn btn-outline-darken btn-hover text-darken py-2 px-5 me-lg-4 my-2 my-lg-0"
                   aria-current="page"
                 >
                   Login
