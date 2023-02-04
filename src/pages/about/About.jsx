@@ -1,7 +1,7 @@
 import React from "react";
 import { aboutus2 } from "../../assets";
 import MainLayout from "../../components/layout/MainLayout";
-import { banner, aboutus1 } from "../assets";
+import { banner, aboutus1 } from "../../assets";
 const About = () => {
   return (
     <MainLayout>
@@ -22,7 +22,7 @@ const About = () => {
               platform for ordering food online. With our website, you can
               browse menus, customize your order, and have your food delivered
               straight to your door. Thanks for choosing us, we hope you enjoy
-              your meal!.
+              your meal!!.
             </p>
           </div>
           <div class="row">
