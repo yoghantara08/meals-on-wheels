@@ -1,0 +1,74 @@
+.img-food-item {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+
+  .img-food {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-fit: 50 50;
+    border-radius: 50%;
+  }
+}
+
+@media (min-width: 1199.98px) {
+  .site-item {
+    width: 38%;
+  }
+
+  .contact-footer {
+    width: 80%;
+  }
+}
+@media (max-width: 767.98px) {
+  .parent-img,
+  .contact-footer,
+  .site-item {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .parent-img,
+  .contact-footer,
+  .site-item {
+    width: 53%;
+  }
+}
+
+.footer-bottom {
+  border-top: 2px solid $c-dark;
+}
+
+.social-icon {
+  display: inline-block;
+  a {
+    width: 42px;
+    height: 42px;
+    display: inline-flex;
+    border-radius: 50%;
+    margin-right: 10px;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    border: 1px solid $c-dark;
+    transition: all 0.25s ease-in-out;
+
+    img {
+      width: 40%;
+      z-index: 1;
+      transition: 0.3s ease-in-out;
+    }
+  }
+
+  a::before {
+    content: "";
+    width: 42px;
+    height: 42px;
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 0.3s ease-in-out;
+  }
+}

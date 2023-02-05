@@ -10,7 +10,7 @@ const MainLayout = ({ children }) => {
         <Navigation />
       </header>
       <main>{children}</main>
-      <footer className="foot">
+      <footer className="bg-shade-yellow container-fluid">
         <Footer />
       </footer>
     </div>
