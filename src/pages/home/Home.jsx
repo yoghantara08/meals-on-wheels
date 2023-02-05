@@ -49,47 +49,25 @@ const Home = () => {
 
       <div className="bestfood py-5 text-center">
         <h1>Our Best Food</h1>
-        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-          <div className="carousel-inner">
-            <div className="carousel-item active">
-              <div className="cards-wraper">
-                <div className="card">
-                  <img src={Food1} className="card-img-top" alt="..."/>
-                  <div className="card-body">
-                    <h5 className="card-title">Menu Name</h5>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="carousel-item">
-              <div className="cards-wraper">
-                <div className="card">
-                  <img src={Food1} className="card-img-top" alt="..."/>
-                  <div className="card-body">
-                    <h5 className="card-title">Menu Name</h5>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="carousel-item">
-              <div className="cards-wraper">
-                <div className="card">
-                  <img src={Food1} className="card-img-top" alt="..."/>
-                  <div className="card-body">
-                    <h5 className="card-title">Menu Name</h5>
-                  </div>
-                </div>
-              </div>
+        <div className="d-flex justify-content-center gap-5 flex-wrap">
+          <div className="card">
+            <img src={Food1} className="card-img-top" alt="..."/>
+            <div className="card-body">
+              <h5 className="card-title">Menu Name</h5>
             </div>
           </div>
-          <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span className="visually-hidden">Previous</span>
-          </button>
-          <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-            <span className="carousel-control-next-icon" aria-hidden="true"></span>
-            <span className="visually-hidden">Next</span>
-          </button>
+          <div className="card">
+            <img src={Food1} className="card-img-top" alt="..."/>
+            <div className="card-body">
+              <h5 className="card-title">Menu Name</h5>
+            </div>
+          </div>
+          <div className="card">
+            <img src={Food1} className="card-img-top" alt="..."/>
+            <div className="card-body">
+              <h5 className="card-title">Menu Name</h5>
+            </div>
+          </div>
         </div>
       </div>
     </MainLayout>
