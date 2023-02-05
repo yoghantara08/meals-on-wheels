@@ -90,7 +90,7 @@ const Navigation = () => {
               </li>
               <li className="nav-item">
                 <NavLink
-                  to="/login"
+                  to="/register"
                   activeclassname="active"
                   className="nav-link btn btn-darken text-whiten py-2 px-5"
                   aria-current="page"
