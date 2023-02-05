@@ -4,3 +4,7 @@
   display: grid;
   grid-template-rows: auto 1fr auto;
 }
+
+.head {
+  min-height: 80px;
+}
