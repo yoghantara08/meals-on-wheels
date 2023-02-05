@@ -12,18 +12,22 @@ const Contact = () => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          height: "500px",
-          paddingBottom: "130px",
-          paddingRight: "100px",
+          paddingBottom: "130px"
         }}
       >
-        <img src={contactusbanner} className="banner-img img-fluid" alt="" />
+        <img src={contactusbanner} className="banner-img img-fluid" alt="" 
+          style={{
+            width: "100%",
+          }}
+        />
 
         <h1
           className="banner-text text-center fw-normal text-white"
           style={{
             position: "absolute",
-            right: "610px",
+            top: "25%",
+            left: "50%",
+            transform: "translate(-50%, -25%)",
             fontSize: "80px",
           }}
         >
