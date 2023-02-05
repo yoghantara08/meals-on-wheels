@@ -1,16 +1,16 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import "../../assets/scss/index.scss";
 
 const Navigation = () => {
   return (
     <>
-      <nav className="navbar bg-shade-yellow navbar-expand-lg navbar-light py-4 fixed-top">
+      <nav className="navbar bg-shade-yellow navbar-expand-lg navbar-light fixed-top">
         <div className="container">
-          <NavLink to="/" className="navbar-brand fw-bold">
+          <Link to="/" className="navbar-brand fw-bold">
             MoW
-          </NavLink>
+          </Link>
           <button
             className="navbar-toggler shadow-none border-0 p-0"
             type="button"
@@ -28,47 +28,39 @@ const Navigation = () => {
           >
             <ul className="navbar-nav">
               <li className="nav-item px-lg-2 mt-2 my-lg-0">
-                <NavLink
+                <Link
                   to="/home"
-                  activeclassname="active"
-                  className="nav-link"
-                  aria-current="page"
+                  className="text-decoration-none text-uppercase fw-semibold text-darken"
                 >
                   Home
-                </NavLink>
+                </Link>
               </li>
 
               <li className="nav-item px-lg-2 mt-2 my-lg-0">
-                <NavLink
+                <Link
                   to="/meals"
-                  activeclassname="active"
-                  className="nav-link"
-                  aria-current="page"
+                  className="text-decoration-none text-uppercase fw-semibold text-darken"
                 >
                   Meals
-                </NavLink>
+                </Link>
               </li>
 
               <li className="nav-item px-lg-2 mt-2 my-lg-0">
-                <NavLink
+                <Link
                   to="/partnership"
-                  activeclassname="active"
-                  className="nav-link"
-                  aria-current="page"
+                  className="text-decoration-none text-uppercase fw-semibold text-darken"
                 >
                   Partnership
-                </NavLink>
+                </Link>
               </li>
 
               <li className="nav-item px-lg-2 mt-2 my-lg-0">
-                <NavLink
+                <Link
                   to="/donation"
-                  activeclassname="active"
-                  className="nav-link"
-                  aria-current="page"
+                  className="text-decoration-none text-uppercase fw-semibold text-darken"
                 >
                   Donation
-                </NavLink>
+                </Link>
               </li>
             </ul>
           </div>
@@ -79,24 +71,20 @@ const Navigation = () => {
           >
             <ul className="navbar-nav">
               <li className="nav-item">
-                <NavLink
+                <Link
                   to="/login"
-                  activeclassname="active"
-                  className="nav-link btn btn-outline-darken btn-hover text-darken py-2 px-5 me-lg-4 my-2 my-lg-0"
-                  aria-current="page"
+                  className="btn btn-outline-darken btn-hover text-darken py-2 px-4 me-lg-3 my-2 my-lg-0"
                 >
                   Login
-                </NavLink>
+                </Link>
               </li>
               <li className="nav-item">
-                <NavLink
+                <Link
                   to="/register"
-                  activeclassname="active"
-                  className="nav-link btn btn-darken text-whiten py-2 px-5"
-                  aria-current="page"
+                  className="btn btn-darken text-whiten py-2 px-4"
                 >
                   Register
-                </NavLink>
+                </Link>
               </li>
             </ul>
           </div>

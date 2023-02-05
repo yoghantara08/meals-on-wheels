@@ -8,7 +8,7 @@ import "../../assets/scss/index.scss";
 const Footer = () => {
   return (
     <div className="container pt-4">
-      <Row className="d-flex justify-content-center align-items-stretch py-4">
+      <Row className="d-flex justify-content-center align-items-stretch">
         <Col sm={12} lg={4} className="parent-img mb-4">
           <div className="footer-item">
             <div className="img-food-item">
@@ -45,14 +45,14 @@ const Footer = () => {
         >
           <div className="d-flex flex-column site-item">
             <Link
-              to="####"
+              to="/about"
               className="link mb-3 text-darken text-decoration-none"
             >
               ABOUT US
             </Link>
 
             <Link
-              to="####"
+              to="/contact"
               className="link mb-3 text-darken text-decoration-none"
             >
               CONTACT US
@@ -70,7 +70,7 @@ const Footer = () => {
             </Link>
           </div>
         </Col>
-        <Col className="py-3 footer-bottom mt-4">
+        <Col className="pt-3 footer-bottom mt-2">
           <div className="bottom-item d-flex align-items-md-center flex-column">
             <div className="social-icon mb-3">
               <a href="##" target="_blank" rel="noreferrer">
