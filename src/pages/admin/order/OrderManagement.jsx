@@ -11,6 +11,7 @@ const OrderManagement = () => {
   const [partnerModal, setPartnerModal] = useState(false);
   const [riderModal, setRiderModal] = useState(false);
   const [orderId, setOrderId] = useState("");
+  const [refresh, setRefresh] = useState(1);
 
   useEffect(() => {
     // Get Order ON PROGRESS
@@ -30,7 +31,7 @@ const OrderManagement = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [refresh]);
 
   return (
     <main className="p-3 mt-2">
@@ -42,11 +43,13 @@ const OrderManagement = () => {
         orderId={orderId}
         show={partnerModal}
         onHide={() => setPartnerModal(false)}
+        refresh={setRefresh}
       />
       <AssignRider
         orderId={orderId}
         show={riderModal}
         onHide={() => setRiderModal(false)}
+        refresh={setRefresh}
       />
       <div className="mt-3">
         <h5 className="fw-bold">Order On Progress</h5>

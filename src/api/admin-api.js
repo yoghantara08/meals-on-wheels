@@ -63,7 +63,10 @@ export const addMeal = async (token, mealFormData) => {
 // PUT edit meal
 export const editMeal = async (token, mealFormData, mealId) => {
   return axios.put(`${ADMIN_URL}/meal/edit/${mealId}`, mealFormData, {
-    headers: { Authorization: `Bearer ${token}` },
+    headers: {
+      "Content-Type": "multipart/form-data",
+      Authorization: `Bearer ${token}`,
+    },
   });
 };
 
