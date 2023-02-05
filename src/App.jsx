@@ -13,7 +13,6 @@ import {
   MealDetailsPage,
   SearchMealsPage,
   PartnershipPage,
-  PartnerRegisterPage,
   MemberPage,
   RiderPage,
   PartnerPage,
@@ -38,7 +37,7 @@ const App = () => {
       <Route path="/meals/search" element={<SearchMealsPage />} />
 
       <Route path="/partnership" element={<PartnershipPage />} />
-      <Route path="/partnership/register" element={<PartnerRegisterPage />} />
+      {/* <Route path="/partnership/register" element={<PartnerRegisterPage />} /> */}
 
       <Route path="/profile/member" element={<MemberPage />} />
       <Route path="/profile/rider" element={<RiderPage />} />

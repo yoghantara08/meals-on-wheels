@@ -6,7 +6,6 @@ import Delivery from "../../assets/img/delivery.png";
 import Delicious from "../../assets/img/delicious.png";
 import Food1 from "../../assets/img/food-1.jpg";
 import "../../assets/css/home.css"
-import { Link } from "react-router-dom";
 
 const Home = () => {
   return( 
