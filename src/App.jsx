@@ -1,28 +1,50 @@
 import React from "react";
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
-import HomePage from "./pages/HomePage";
-import AboutPage from "./pages/AboutPage";
-import ContactPage from "./pages/ContactPage";
-import LoginPage from "./pages/LoginPage";
-import RegisterPage from "./pages/RegisterPage";
-import MealsPage from "./pages/MealsPage";
-import MenuDetailsPage from "./pages/MenuDetailsPage";
-import DonationPage from "./pages/DonationPage";
+import { Routes, Route } from "react-router-dom";
+import {
+  HomePage,
+  AboutPage,
+  AdminPage,
+  ContactPage,
+  DonationPage,
+  DonatePage,
+  DonateThankYouPage,
+  LoginPage,
+  MealsPage,
+  MealDetailsPage,
+  SearchMealsPage,
+  PartnershipPage,
+  PartnerRegisterPage,
+  MemberPage,
+  RiderPage,
+  PartnerPage,
+  RegisterPage,
+} from "./pages";
 
 const App = () => {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<HomePage/>}></Route>
-        <Route path="/about" element={<AboutPage/>}></Route>
-        <Route path="/contact" element={<ContactPage/>}></Route>
-        <Route path="/login" element={<LoginPage/>}></Route>
-        <Route path="/register" element={<RegisterPage/>}></Route>
-        <Route path="/meals" element={<MealsPage/>}></Route>
-        <Route path="/menu-details" element={<MenuDetailsPage/>}></Route>
-        <Route path="/donation" element={<DonationPage/>}></Route>
-      </Routes>
-    </Router> 
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/register" element={<RegisterPage />} />
+      <Route path="/about" element={<AboutPage />} />
+      <Route path="/contact" element={<ContactPage />} />
+      <Route path="/donation" element={<DonationPage />} />
+      <Route path="/donation/donate" element={<DonatePage />} />
+      <Route path="/donation/thank-you" element={<DonateThankYouPage />} />
+
+      <Route path="/meals" element={<MealsPage />} />
+      <Route path="/meals/:mealId" element={<MealDetailsPage />} />
+      <Route path="/meals/search" element={<SearchMealsPage />} />
+
+      <Route path="/partnership" element={<PartnershipPage />} />
+      <Route path="/partnership/register" element={<PartnerRegisterPage />} />
+
+      <Route path="/profile/member" element={<MemberPage />} />
+      <Route path="/profile/rider" element={<RiderPage />} />
+      <Route path="/profile/partner" element={<PartnerPage />} />
+
+      <Route path="/admin" element={<AdminPage />} />
+    </Routes>
   );
-}
+};
 export default App;
