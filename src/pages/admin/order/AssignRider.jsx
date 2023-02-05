@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import { assignOrderToRider, getUsers } from "../../../api/admin-api";
-import { adminToken } from "../dummy-token";
+import AuthContext from "../../../context/auth-context";
 
 const AssignRider = ({ show, onHide, orderId, refresh }) => {
+  const authCtx = useContext(AuthContext);
   const [users, setUsers] = useState([]);
   const [riders, setRider] = useState([]);
 
   useEffect(() => {
-    getUsers(adminToken)
+    getUsers(authCtx.token)
       .then((res) => {
         setUsers(res.data);
         setRider(users.filter((user) => user.role === "RIDER"));
@@ -16,10 +17,10 @@ const AssignRider = ({ show, onHide, orderId, refresh }) => {
       .catch((err) => {
         console.log(err);
       });
-  }, [users]);
+  }, [authCtx.token, users]);
 
   const assignParter = (riderId) => {
-    assignOrderToRider(adminToken, orderId, riderId)
+    assignOrderToRider(authCtx.token, orderId, riderId)
       .then((res) => {
         onHide();
         refresh((prev) => (prev += 1));

@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 
 import "../../assets/scss/index.scss";
+import AuthContext from "../../context/auth-context";
+import LoginRegisButton from "./LoginRegisButton";
+import NavigationLink from "./NavigationLink";
+import ProfileButton from "./ProfileButton";
 
 const Navigation = () => {
+  const authCtx = useContext(AuthContext);
+
   return (
     <>
       <nav className="navbar bg-shade-yellow navbar-expand-lg navbar-light fixed-top">
@@ -27,41 +33,7 @@ const Navigation = () => {
             id="navbarNav"
           >
             <ul className="navbar-nav">
-              <li className="nav-item px-lg-2 mt-2 my-lg-0">
-                <Link
-                  to="/home"
-                  className="text-decoration-none text-uppercase fw-semibold text-darken"
-                >
-                  Home
-                </Link>
-              </li>
-
-              <li className="nav-item px-lg-2 mt-2 my-lg-0">
-                <Link
-                  to="/meals"
-                  className="text-decoration-none text-uppercase fw-semibold text-darken"
-                >
-                  Meals
-                </Link>
-              </li>
-
-              <li className="nav-item px-lg-2 mt-2 my-lg-0">
-                <Link
-                  to="/partnership"
-                  className="text-decoration-none text-uppercase fw-semibold text-darken"
-                >
-                  Partnership
-                </Link>
-              </li>
-
-              <li className="nav-item px-lg-2 mt-2 my-lg-0">
-                <Link
-                  to="/donation"
-                  className="text-decoration-none text-uppercase fw-semibold text-darken"
-                >
-                  Donation
-                </Link>
-              </li>
+              <NavigationLink />
             </ul>
           </div>
 
@@ -69,24 +41,7 @@ const Navigation = () => {
             className="collapse navbar-collapse justify-content-end align-items-center"
             id="navbarNav"
           >
-            <ul className="navbar-nav">
-              <li className="nav-item">
-                <Link
-                  to="/login"
-                  className="btn btn-outline-darken btn-hover text-darken py-2 px-4 me-lg-3 my-2 my-lg-0"
-                >
-                  Login
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  to="/register"
-                  className="btn btn-darken text-whiten py-2 px-4"
-                >
-                  Register
-                </Link>
-              </li>
-            </ul>
+            {authCtx.isLoggedIn ? <ProfileButton /> : <LoginRegisButton />}
           </div>
         </div>
       </nav>

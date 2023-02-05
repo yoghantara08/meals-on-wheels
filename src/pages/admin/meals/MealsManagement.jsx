@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Dropdown, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { getMeals } from "../../../api/admin-api";
-import { adminToken } from "../dummy-token";
+import AuthContext from "../../../context/auth-context";
 import AddMeal from "./AddMeal";
 import EditMeal from "./EditMeal";
 
 const MealsManagement = () => {
+  const authCtx = useContext(AuthContext);
   const [meals, setMeals] = useState([]);
   const [show, setShow] = useState(false);
   const [editMeal, setEditMeal] = useState(false);
@@ -14,14 +15,14 @@ const MealsManagement = () => {
   const [refresh, setRefresh] = useState(1);
 
   useEffect(() => {
-    getMeals(adminToken)
+    getMeals(authCtx.token)
       .then((res) => {
         setMeals(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, [refresh]);
+  }, [authCtx.token, refresh]);
 
   return (
     <div className="p-3 mt-2">

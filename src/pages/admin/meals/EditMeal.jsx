@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Button, Modal } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { editMeal } from "../../../api/admin-api";
-import { adminToken } from "../dummy-token";
+import AuthContext from "../../../context/auth-context";
 
 const EditMeal = ({
   show,
@@ -13,6 +13,7 @@ const EditMeal = ({
   ingredients,
   refresh,
 }) => {
+  const authCtx = useContext(AuthContext);
   const { register, handleSubmit, reset } = useForm({
     values: {
       mealName,
@@ -34,7 +35,7 @@ const EditMeal = ({
     formData.append("ingredients", ingredients);
     formData.append("image", image);
 
-    editMeal(adminToken, formData, mealId)
+    editMeal(authCtx.token, formData, mealId)
       .then((res) => {
         alert(res.data.message);
         refresh((prev) => (prev += 1));

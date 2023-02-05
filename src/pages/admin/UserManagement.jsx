@@ -1,16 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import { acceptUsers, getPendingUsers, getUsers } from "../../api/admin-api";
-import { adminToken } from "./dummy-token";
+import AuthContext from "../../context/auth-context";
 
 const UserManagement = () => {
+  const authCtx = useContext(AuthContext);
   const [users, setUsers] = useState([]);
   const [usersPending, setUsersPending] = useState([]);
   const [refresh, setRefresh] = useState(1);
 
   useEffect(() => {
     // Get User List
-    getUsers(adminToken)
+    getUsers(authCtx.token)
       .then((res) => {
         setUsers(res.data);
       })
@@ -19,17 +20,17 @@ const UserManagement = () => {
       });
 
     // Get Pending User(RIDER)
-    getPendingUsers(adminToken)
+    getPendingUsers(authCtx.token)
       .then((res) => {
         setUsersPending(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, [refresh]);
+  }, [authCtx.token, refresh]);
 
   const activateAccount = (userId) => {
-    acceptUsers(adminToken, userId)
+    acceptUsers(authCtx.token, userId)
       .then((res) => {
         alert(res.data.message);
         setRefresh((prev) => (prev += 1));

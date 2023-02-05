@@ -1,20 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import {
   acceptPartners,
   getPartners,
   getPendingPartners,
 } from "../../api/admin-api";
-import { adminToken } from "./dummy-token";
+import AuthContext from "../../context/auth-context";
 
 const PartnerManagement = () => {
+  const authCtx = useContext(AuthContext);
   const [partner, setPartner] = useState([]);
   const [partnerPending, setPartnerPending] = useState([]);
   const [refresh, setRefresh] = useState(1);
 
   useEffect(() => {
     // Get partner list
-    getPartners(adminToken)
+    getPartners(authCtx.token)
       .then((res) => {
         setPartner(res.data);
       })
@@ -23,17 +24,17 @@ const PartnerManagement = () => {
       });
 
     // Get partner pending list
-    getPendingPartners(adminToken)
+    getPendingPartners(authCtx.token)
       .then((res) => {
         setPartnerPending(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, [refresh]);
+  }, [authCtx.token, refresh]);
 
   const acceptPartner = (partnerId) => {
-    acceptPartners(adminToken, partnerId)
+    acceptPartners(authCtx.token, partnerId)
       .then((res) => {
         alert(res.data.message);
         setRefresh((prev) => (prev += 1));
