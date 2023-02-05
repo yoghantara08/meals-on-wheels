@@ -29,10 +29,12 @@ const App = () => {
       <Route path="/" element={<HomePage />} />
       <Route path="/home" element={<HomePage />} />
 
-      <>
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-      </>
+      {!isLoggedIn && (
+        <>
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+        </>
+      )}
 
       <Route path="/about" element={<AboutPage />} />
       <Route path="/contact" element={<ContactPage />} />
