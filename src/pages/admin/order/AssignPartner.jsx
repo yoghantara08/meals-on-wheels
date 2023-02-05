@@ -1,23 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import { assignOrderToPartner, getPartners } from "../../../api/admin-api";
-import { adminToken } from "../dummy-token";
+import AuthContext from "../../../context/auth-context";
 
 const AssignPartner = ({ show, onHide, orderId, refresh }) => {
+  const authCtx = useContext(AuthContext);
   const [partners, setPartners] = useState([]);
 
   useEffect(() => {
-    getPartners(adminToken)
+    getPartners(authCtx.token)
       .then((res) => {
         setPartners(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [authCtx.token]);
 
   const assignParter = (partnerId) => {
-    assignOrderToPartner(adminToken, orderId, partnerId)
+    assignOrderToPartner(authCtx.token, orderId, partnerId)
       .then((res) => {
         onHide();
         refresh((prev) => (prev += 1));

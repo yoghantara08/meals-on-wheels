@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Routes, Route } from "react-router-dom";
+import AuthContext from "./context/auth-context";
 import {
   HomePage,
   AboutPage,
@@ -20,12 +21,19 @@ import {
 } from "./pages";
 
 const App = () => {
+  const { isLoggedIn, isAdmin, isMember, isPartner, isRider } =
+    useContext(AuthContext);
+
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/home" element={<HomePage />} />
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/register" element={<RegisterPage />} />
+
+      <>
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+      </>
+
       <Route path="/about" element={<AboutPage />} />
       <Route path="/contact" element={<ContactPage />} />
       <Route path="/donation" element={<DonationPage />} />
@@ -39,11 +47,10 @@ const App = () => {
       <Route path="/partnership" element={<PartnershipPage />} />
       {/* <Route path="/partnership/register" element={<PartnerRegisterPage />} /> */}
 
-      <Route path="/profile/member" element={<MemberPage />} />
-      <Route path="/profile/rider" element={<RiderPage />} />
-      <Route path="/profile/partner" element={<PartnerPage />} />
-
-      <Route path="/admin" element={<AdminPage />} />
+      {isMember && <Route path="/profile/member" element={<MemberPage />} />}
+      {isRider && <Route path="/profile/rider" element={<RiderPage />} />}
+      {isPartner && <Route path="/profile/partner" element={<PartnerPage />} />}
+      {isAdmin && <Route path="/admin" element={<AdminPage />} />}
     </Routes>
   );
 };

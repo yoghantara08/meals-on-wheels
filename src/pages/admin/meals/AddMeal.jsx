@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Button, Modal } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { addMeal } from "../../../api/admin-api";
-import { adminToken } from "../dummy-token";
+import AuthContext from "../../../context/auth-context";
 
 const AddMeal = ({ show, onHide, refresh }) => {
+  const authCtx = useContext(AuthContext);
   const { register, handleSubmit, reset } = useForm();
 
   const onSubmitHandler = (data) => {
@@ -20,7 +21,7 @@ const AddMeal = ({ show, onHide, refresh }) => {
     formData.append("ingredients", ingredients);
     formData.append("image", image);
 
-    addMeal(adminToken, formData)
+    addMeal(authCtx.token, formData)
       .then((res) => {
         alert(res.data.message);
         refresh((prev) => (prev += 1));

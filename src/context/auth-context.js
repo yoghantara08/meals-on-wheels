@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { getProfile } from "../api/profile-api";
 
 // Create Context API
 const AuthContext = React.createContext({
   userId: "",
   role: "",
   token: "",
+  profile: {},
   isAdmin: false,
   isMember: false,
   isRider: false,
@@ -34,6 +36,13 @@ export const AuthContextProvider = (props) => {
 
   // USE STATE
   const [token, setToken] = useState(initialToken);
+  const [userId, setUserId] = useState("");
+  const [role, setRole] = useState("");
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [isMember, setIsMember] = useState(false);
+  const [isRider, setIsRider] = useState(false);
+  const [isPartner, setIsPartner] = useState(false);
+  const [profile, setProfile] = useState({});
 
   // Check Token (!! = convert to Boolean)
   const userIsLoggedIn = !!token;
@@ -41,8 +50,43 @@ export const AuthContextProvider = (props) => {
   // GET USER LOGIN DATA
   useEffect(() => {
     if (token) {
+      getProfile(token).then((res) => {
+        setUserId(res.data._id);
+        setRole(res.data.role);
+        setProfile(res.data);
+      });
     }
-  }, [token]);
+
+    if (role && role !== "") {
+      // MEMBER
+      if (role === "MEMBER") {
+        setIsMember(true);
+      } else {
+        setIsMember(false);
+      }
+
+      // RIDER
+      if (role === "RIDER") {
+        setIsRider(true);
+      } else {
+        setIsRider(false);
+      }
+
+      // PARTNER
+      if (role === "PARTNER") {
+        setIsPartner(true);
+      } else {
+        setIsPartner(false);
+      }
+
+      // ADMIN
+      if (role === "ADMIN") {
+        setIsAdmin(true);
+      } else {
+        setIsAdmin(false);
+      }
+    }
+  }, [token, role]);
 
   // LOGOUT
   const logoutHandler = () => {
@@ -59,12 +103,13 @@ export const AuthContextProvider = (props) => {
   // Context Value
   const contextValue = {
     token: token,
-    userId: "",
-    role: "",
-    isAdmin: false,
-    isMember: false,
-    isRider: false,
-    isPartner: false,
+    userId: userId,
+    role: role,
+    profile: profile,
+    isAdmin: isAdmin,
+    isMember: isMember,
+    isRider: isRider,
+    isPartner: isPartner,
     isLoggedIn: userIsLoggedIn,
     login: loginHandler,
     logout: logoutHandler,

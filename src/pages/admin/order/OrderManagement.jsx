@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import { getOrderComplete, getOrderOnProgress } from "../../../api/admin-api";
-import { adminToken } from "../dummy-token";
+import AuthContext from "../../../context/auth-context";
 import AssignPartner from "./AssignPartner";
 import AssignRider from "./AssignRider";
 
 const OrderManagement = () => {
+  const authCtx = useContext(AuthContext);
   const [onProgressOrder, setOnProgressOrder] = useState([]);
   const [orderComplete, setOrderComplete] = useState([]);
   const [partnerModal, setPartnerModal] = useState(false);
@@ -15,7 +16,7 @@ const OrderManagement = () => {
 
   useEffect(() => {
     // Get Order ON PROGRESS
-    getOrderOnProgress(adminToken)
+    getOrderOnProgress(authCtx.token)
       .then((res) => {
         setOnProgressOrder(res.data);
       })
@@ -24,17 +25,17 @@ const OrderManagement = () => {
       });
 
     // Get Order COMPLETE
-    getOrderComplete(adminToken)
+    getOrderComplete(authCtx.token)
       .then((res) => {
         setOrderComplete(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, [refresh]);
+  }, [authCtx.token, refresh]);
 
   return (
-    <main className="p-3 mt-2">
+    <div className="p-3 mt-2">
       <div className="d-flex justify-content-center align-items-center">
         <h2 className="fw-bold text-decoration-underline">Order Management</h2>
       </div>
@@ -132,7 +133,7 @@ const OrderManagement = () => {
           </tbody>
         </Table>
       </div>
-    </main>
+    </div>
   );
 };
 

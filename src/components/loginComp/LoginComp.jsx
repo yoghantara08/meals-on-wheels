@@ -1,11 +1,41 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Container, Row, Col, Image } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { Link, useNavigate } from "react-router-dom";
+import { loginAPI } from "../../api/auth-api";
 
 import { Food1 } from "../../assets/img";
 import "../../assets/scss/index.scss";
+import AuthContext from "../../context/auth-context";
 
 const LoginComp = () => {
+  const { register, handleSubmit, reset } = useForm();
+  const authCtx = useContext(AuthContext);
+  const navigate = useNavigate();
+  const [invalid, setInvalid] = useState(false);
+
+  const onSubmitHandler = (data) => {
+    loginAPI(data.email, data.password)
+      .then((res) => {
+        authCtx.login(res.data.token);
+        reset();
+        if (res.data.role === "ADMIN") {
+          navigate("/admin");
+        }
+        if (res.data.role === "MEMBER") {
+          navigate("/profile/member");
+        }
+        if (res.data.role === "RIDER") {
+          navigate("/profile/rider");
+        }
+        if (res.data.role === "PARTNER") {
+          navigate("/profile/partner");
+        }
+      })
+      .catch((err) => {
+        setInvalid(true);
+      });
+  };
   return (
     <>
       <Container className="top">
@@ -29,36 +59,40 @@ const LoginComp = () => {
                   />
                   <h1 className="fw-bold mb-0">LOGIN</h1>
                 </div>
-                <h5 className="fw-normal mb-3 pb-3">Login into your Account</h5>
+                <h5 className="fw-normal mb-3">Login into your Account</h5>
 
-                <form>
+                <form onSubmit={handleSubmit(onSubmitHandler)}>
+                  {invalid && (
+                    <div className="p-3 text-center invalid-login">
+                      Invalid email or password!
+                    </div>
+                  )}
                   <div className="mb-3">
                     <input
                       type="email"
                       className="form-control form-field shadow-none"
                       id="exampleInputEmail1"
                       aria-describedby="emailHelp"
-                      placeholder="example@gmail.com"
+                      placeholder="email@gmail.com"
+                      {...register("email", { required: true })}
                     />
                   </div>
-
                   <div className="mb-3">
                     <input
                       type="password"
                       id="inputPassword5"
                       className="form-control form-field shadow-none"
                       aria-describedby="passwordHelpBlock"
-                      placeholder="********"
+                      placeholder="password"
+                      {...register("password", { required: true })}
                     />
                   </div>
-
                   <div className="text-to-link">
                     <p className="">
                       Dont have an Account? &ensp;{" "}
                       <Link to="/register">Register</Link>
                     </p>
                   </div>
-
                   <div className="d-flex justify-content-center align-items-center mb-2">
                     <button
                       type="submit"
