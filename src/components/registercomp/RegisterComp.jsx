@@ -38,7 +38,7 @@ const Register = () => {
                     <div className="mb-3 me-lg-2">
                       <input
                         type="text"
-                        className="form-control shadow-none"
+                        className="form-control form-field shadow-none"
                         id="exampleInputText"
                         aria-describedby="textHelp"
                         placeholder="First Name"
@@ -48,7 +48,7 @@ const Register = () => {
                     <div className="mb-3 ms-lg-2">
                       <input
                         type="text"
-                        className="form-control shadow-none"
+                        className="form-control form-field shadow-none"
                         id="exampleInputText"
                         aria-describedby="textHelp"
                         placeholder="Last Name"
@@ -59,7 +59,7 @@ const Register = () => {
                   <div className="mb-3">
                     <input
                       type="email"
-                      className="form-control shadow-none"
+                      className="form-control form-field shadow-none"
                       id="exampleInputEmail1"
                       aria-describedby="emailHelp"
                       placeholder="example@gmail.com"
@@ -70,7 +70,7 @@ const Register = () => {
                     <input
                       type="password"
                       id="inputPassword5"
-                      className="form-control shadow-none"
+                      className="form-control form-field shadow-none"
                       aria-describedby="passwordHelpBlock"
                       placeholder="********"
                     />
@@ -79,7 +79,7 @@ const Register = () => {
                   <div className="mb-3">
                     <input
                       type="text"
-                      className="form-control shadow-none"
+                      className="form-control form-field shadow-none"
                       id="exampleInputText"
                       aria-describedby="textHelp"
                       placeholder="Your Age"
@@ -89,7 +89,7 @@ const Register = () => {
                   <div className="mb-3">
                     <input
                       type="text"
-                      className="form-control shadow-none"
+                      className="form-control form-field shadow-none"
                       id="exampleInputText"
                       aria-describedby="textHelp"
                       placeholder="0123 1234 1234"
@@ -99,7 +99,7 @@ const Register = () => {
                   <div className="mb-3">
                     <input
                       type="text"
-                      className="form-control shadow-none"
+                      className="form-control form-field shadow-none"
                       id="exampleInputText"
                       aria-describedby="textHelp"
                       placeholder="Street Example No.1, City - Country"
@@ -107,7 +107,7 @@ const Register = () => {
                   </div>
 
                   <select
-                    className="form-select mb-3 shadow-none"
+                    className="form-select form-field mb-3 shadow-none"
                     aria-label="Default select example"
                   >
                     <option className="text-darken" selected>

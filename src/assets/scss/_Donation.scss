@@ -1,0 +1,60 @@
+.top-donate-page {
+  margin-top: 1rem;
+}
+
+.parent-img-donation {
+  @media (min-width: 991.98px) {
+    height: 45vh;
+
+    .img-item-banner {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .img-item-banner {
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+  }
+}
+
+.btn-donation {
+  width: 100%;
+  padding: 0.7rem 1.6rem;
+  transition: 0.3s ease-in-out;
+}
+
+.btn-donation:checked,
+.btn-donation:hover,
+.btn-donation:active,
+.btn-donation.active {
+  background-color: $s-green;
+  color: $c-dark !important;
+}
+
+.desc-donate {
+  margin-top: 5rem;
+}
+
+.parent-img-payment {
+  @media (min-width: 991.98px) {
+    height: 100px;
+
+    .img-payment {
+      height: 100%;
+    }
+  }
+
+  @media (max-width: 991.98px) {
+    height: 50px;
+
+    .img-payment {
+      height: 100%;
+    }
+  }
+}
+
+.span-donated {
+  font-size: 1.2rem;
+}

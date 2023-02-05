@@ -35,7 +35,7 @@ const LoginComp = () => {
                   <div className="mb-3">
                     <input
                       type="email"
-                      className="form-control shadow-none"
+                      className="form-control form-field shadow-none"
                       id="exampleInputEmail1"
                       aria-describedby="emailHelp"
                       placeholder="example@gmail.com"
@@ -46,7 +46,7 @@ const LoginComp = () => {
                     <input
                       type="password"
                       id="inputPassword5"
-                      className="form-control shadow-none"
+                      className="form-control form-field shadow-none"
                       aria-describedby="passwordHelpBlock"
                       placeholder="********"
                     />
