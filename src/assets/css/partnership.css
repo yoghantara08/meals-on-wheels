@@ -10,10 +10,17 @@
     object-fit: cover;
 }
 
-.partnership .form-group input{
+.partnership .form-group input[type="text"],
+.partnership .form-group input[type="email"],
+.partnership .form-group input[type="password"]
+{
     width: 30vw;
     height: 40px;
     border: 1px solid gray;
+}
+
+.partnership .form-group input[type="file"]{
+    width: 30vw;
 }
 
 .partnership hr{
@@ -31,4 +38,17 @@
 .partnership button:hover{
     color: white;
     background-color: #222222;
+}
+
+@media screen and (max-width: 900px) {
+    .partnership img{
+        display: none;
+    }
+    .partnership .form-group,
+    .partnership button{
+        width: 70vw;
+    }
+    .partnership .form-group input{
+        width: 100% !important;
+    }
 }

@@ -15,10 +15,12 @@ const Home = () => {
         <div className="banner-text text-white text-center">
           <h1 className="fw-normal">Welcome to <span className="fw-bold">Meals On Wheels</span></h1>
           <h5 className="fw-normal">Search for <span className="fw-bold">food</span></h5>
-          <div className="d-flex search bg-transparent border-white rounded">
-            <i class="fa-solid fa-magnifying-glass m-auto"></i>
-            <input className="w-100 bg-transparent text-white" placeholder="Your text here..."/>
-          </div>
+          <form action="/meals/search">
+            <div className="d-flex search bg-transparent border-white rounded">
+              <i class="fa-solid fa-magnifying-glass m-auto"></i>
+              <input className="w-100 bg-transparent text-white" placeholder="Your text here..." name="value"/>
+            </div>
+          </form>
         </div>
       </div>
 
@@ -53,18 +55,21 @@ const Home = () => {
             <img src={Food1} className="card-img-top" alt="..."/>
             <div className="card-body">
               <h5 className="card-title">Menu Name</h5>
+              <button className="btn btn-primary">See Details</button>
             </div>
           </div>
           <div className="card">
             <img src={Food1} className="card-img-top" alt="..."/>
             <div className="card-body">
               <h5 className="card-title">Menu Name</h5>
+              <button className="btn btn-primary">See Details</button>
             </div>
           </div>
           <div className="card">
             <img src={Food1} className="card-img-top" alt="..."/>
             <div className="card-body">
               <h5 className="card-title">Menu Name</h5>
+              <button className="btn btn-primary">See Details</button>
             </div>
           </div>
         </div>

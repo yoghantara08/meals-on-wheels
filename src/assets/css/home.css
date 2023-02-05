@@ -63,3 +63,13 @@
 .cards-wraper{
     display: flex;
 }
+
+.card .card-body button{
+    color: white;
+    width: 100%;
+    background-color: #A3A380;
+}
+
+.card .card-body button:hover{
+    background-color: #8d8d69;
+}

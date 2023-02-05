@@ -6,7 +6,7 @@ import PartnershipImg from "../../assets/img/partnership.jpg";
 const Partnership = () => {
   return (
     <MainLayout>
-      <div className="partnership form container rounded pt-2 pb-4 text-black">
+      <div className="partnership form container rounded pt-4 pb-4 text-black">
         <h1 className="text-center">Partnership Request</h1>
         <hr/>
         <div className="d-flex form justify-content-center gap-5 mt-4">
@@ -56,8 +56,8 @@ const Partnership = () => {
                 name="phoneNumber"
               />
             </div>
-            <div class="mb-3">
-              <label for="image" class="form-label">Company Image</label>
+            <div class="form-group mb-3">
+              <label for="image" class="label">Company Image</label>
               <input 
                   className="form-control rounded" 
                   type="file" 
