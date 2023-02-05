@@ -1,12 +1,12 @@
-.banner{
+banner{
     background-color: black;
 }
 
-.banner img{
+banner img{
     opacity: 0.4 !important;
 }
 
-.banner-text{
+banner-text{
     width: 40vw;
 }
 
