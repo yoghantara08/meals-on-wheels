@@ -3,7 +3,7 @@ import { Button, Modal } from "react-bootstrap";
 import { assignOrderToPartner, getPartners } from "../../../api/admin-api";
 import { adminToken } from "../dummy-token";
 
-const AssignPartner = ({ show, onHide, orderId }) => {
+const AssignPartner = ({ show, onHide, orderId, refresh }) => {
   const [partners, setPartners] = useState([]);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ const AssignPartner = ({ show, onHide, orderId }) => {
     assignOrderToPartner(adminToken, orderId, partnerId)
       .then((res) => {
         onHide();
-        window.location.reload();
+        refresh((prev) => (prev += 1));
       })
       .catch((err) => {
         console.log(err);

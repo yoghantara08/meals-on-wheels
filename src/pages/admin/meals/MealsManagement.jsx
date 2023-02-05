@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from "react";
+import { Dropdown, Table } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { getMeals } from "../../../api/admin-api";
 import { adminToken } from "../dummy-token";
 import AddMeal from "./AddMeal";
+import EditMeal from "./EditMeal";
 
 const MealsManagement = () => {
   const [meals, setMeals] = useState([]);
   const [show, setShow] = useState(false);
+  const [editMeal, setEditMeal] = useState(false);
+  const [mealData, setMealData] = useState({});
+  const [refresh, setRefresh] = useState(1);
 
   useEffect(() => {
     getMeals(adminToken)
@@ -15,50 +21,85 @@ const MealsManagement = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [refresh]);
 
   return (
     <main className="p-3 mt-2">
       <div className="d-flex justify-content-center align-items-center">
         <h2 className="fw-bold text-decoration-underline">Meals Management</h2>
       </div>
-      <AddMeal show={show} onHide={() => setShow(false)} />
+      <AddMeal show={show} onHide={() => setShow(false)} refresh={setRefresh} />
+      <EditMeal
+        show={editMeal}
+        onHide={() => setEditMeal(false)}
+        mealId={mealData.mealId}
+        mealName={mealData.mealName}
+        description={mealData.description}
+        ingredients={mealData.ingredients}
+        refresh={setRefresh}
+      />
       <div className="mt-3">
         <h5 className="fw-bold">Meal List</h5>
         <button
-          className="btn btn-shade-yellow"
+          className="btn btn-shade-yellow mb-3"
           onClick={() => {
             setShow(true);
           }}
         >
           Add Meal <i className="fa-solid fa-plus"></i>
         </button>
-        <div className="mt-3 row gap-3 mx-1">
-          {meals.map((meal) => (
-            <div
-              className="col-sm-4 col-xl-3 admin-card-meal p-0"
-              key={meal._id}
-            >
-              <div className="admin-card-meal__image">
-                <img
-                  src={`http://localhost:8080/${meal.image}`}
-                  alt={meal.mealName}
-                />
-              </div>
-              <div className="px-3">
-                <p className="m-0 my-2 fw-bold fs-4">{meal.mealName}</p>
-                <p className="m-0 my-2">{meal.description}</p>
-                <div className="mb-2">
-                  <p className="m-0 fw-semibold">Ingredients:</p>
-                  {meal.ingredients.map((i) => (
-                    <span>{i} </span>
-                  ))}
-                </div>
-                <button className="btn btn-shade-yellow mb-4">Edit Meal</button>
-              </div>
-            </div>
-          ))}
-        </div>
+        <Table striped bordered responsive>
+          <thead>
+            <tr>
+              <th>Meal Id</th>
+              <th>Meal Name</th>
+              <th>Description</th>
+              <th>Ingredients</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {meals.map((meal) => (
+              <tr key={meal._id}>
+                <td>{meal._id}</td>
+                <td>{meal.mealName}</td>
+                <td>{meal.description}</td>
+                <td>{meal.ingredients}</td>
+                <td>
+                  <Dropdown>
+                    <Dropdown.Toggle variant="shade-yellow" id="dropdown-basic">
+                      <i class="fa-solid fa-pen-to-square"></i>
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu>
+                      <Dropdown.Item>
+                        <Link
+                          to="/meals"
+                          className="text-decoration-none text-darken"
+                        >
+                          Meal Details
+                        </Link>
+                      </Dropdown.Item>
+                      <Dropdown.Item
+                        onClick={() => {
+                          setEditMeal(true);
+                          setMealData({
+                            mealId: meal._id,
+                            mealName: meal.mealName,
+                            description: meal.description,
+                            ingredients: meal.ingredients,
+                          });
+                        }}
+                      >
+                        Edit Meal
+                      </Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
       </div>
     </main>
   );

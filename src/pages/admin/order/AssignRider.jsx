@@ -3,7 +3,7 @@ import { Button, Modal } from "react-bootstrap";
 import { assignOrderToRider, getUsers } from "../../../api/admin-api";
 import { adminToken } from "../dummy-token";
 
-const AssignRider = ({ show, onHide, orderId }) => {
+const AssignRider = ({ show, onHide, orderId, refresh }) => {
   const [users, setUsers] = useState([]);
   const [riders, setRider] = useState([]);
 
@@ -22,7 +22,7 @@ const AssignRider = ({ show, onHide, orderId }) => {
     assignOrderToRider(adminToken, orderId, riderId)
       .then((res) => {
         onHide();
-        window.location.reload();
+        refresh((prev) => (prev += 1));
       })
       .catch((err) => {
         console.log(err);

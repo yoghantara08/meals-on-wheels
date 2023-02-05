@@ -7,7 +7,7 @@ const Contact = () => {
   return (
     <MainLayout>
       <div
-        className="banner "
+        className="banner"
         style={{
           display: "flex",
           alignItems: "center",

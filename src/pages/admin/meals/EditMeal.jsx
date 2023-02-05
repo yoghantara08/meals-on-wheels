@@ -1,11 +1,25 @@
 import React from "react";
 import { Button, Modal } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { addMeal } from "../../../api/admin-api";
+import { editMeal } from "../../../api/admin-api";
 import { adminToken } from "../dummy-token";
 
-const AddMeal = ({ show, onHide, refresh }) => {
-  const { register, handleSubmit, reset } = useForm();
+const EditMeal = ({
+  show,
+  onHide,
+  mealId,
+  mealName,
+  description,
+  ingredients,
+  refresh,
+}) => {
+  const { register, handleSubmit, reset } = useForm({
+    values: {
+      mealName,
+      description,
+      ingredients,
+    },
+  });
 
   const onSubmitHandler = (data) => {
     const formData = new FormData();
@@ -20,7 +34,7 @@ const AddMeal = ({ show, onHide, refresh }) => {
     formData.append("ingredients", ingredients);
     formData.append("image", image);
 
-    addMeal(adminToken, formData)
+    editMeal(adminToken, formData, mealId)
       .then((res) => {
         alert(res.data.message);
         refresh((prev) => (prev += 1));
@@ -41,9 +55,7 @@ const AddMeal = ({ show, onHide, refresh }) => {
       centered
     >
       <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
-          Add Meal Menu
-        </Modal.Title>
+        <Modal.Title id="contained-modal-title-vcenter">Edit Meal</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <form onSubmit={handleSubmit(onSubmitHandler)}>
@@ -77,13 +89,11 @@ const AddMeal = ({ show, onHide, refresh }) => {
             <input
               type="file"
               className="form-control shadow-none"
-              {...register("image", {
-                required: true,
-              })}
+              {...register("image")}
             />
           </div>
           <button className="btn btn-shade-yellow" type="submit">
-            Add Meal
+            Edit Meal
           </button>
         </form>
       </Modal.Body>
@@ -96,4 +106,4 @@ const AddMeal = ({ show, onHide, refresh }) => {
   );
 };
 
-export default AddMeal;
+export default EditMeal;
