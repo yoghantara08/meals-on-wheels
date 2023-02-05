@@ -1,26 +1,38 @@
 import React from "react";
 import { aboutus2, contactus } from "../../assets";
 import MainLayout from "../../components/layout/MainLayout";
-import { aboutus1 } from "../../assets";
+import { aboutus1, contactusbanner } from "../../assets";
 
 const Contact = () => {
   return (
     <MainLayout>
       <div
-        class="container-fluid"
-        className="pt-5"
+        className="banner "
         style={{
-          backgroundImage: "../../assets/contactbanner.png",
-          padding: "20px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          height: "500px",
+          paddingBottom: "130px",
           paddingRight: "100px",
-          width: "100",
-          height: "100px",
         }}
       >
-        <h3 className="text-center">Contact Us</h3>
+        <img src={contactusbanner} className="banner-img img-fluid" alt="" />
+
+        <h1
+          className="banner-text text-center fw-normal text-white"
+          style={{
+            position: "absolute",
+            right: "610px",
+            fontSize: "80px",
+          }}
+        >
+          {" "}
+          Contact Us
+        </h1>
       </div>
 
-      <div class="container pt-5">
+      <div class="container pt-">
         <div class="row">
           <div className="col-sm-6">
             <img
