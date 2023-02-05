@@ -1,0 +1,45 @@
+.admin-dashboard {
+  min-height: 100vh;
+}
+
+.admin-nav {
+  width: 350px;
+}
+
+.admin-nav li {
+  font-weight: 600;
+  padding: 10px;
+  padding-left: 20px;
+  cursor: pointer;
+  margin-bottom: 30px;
+  border-radius: 4px;
+  background: #eef0ce;
+}
+
+.admin-nav li:hover {
+  transition: all 0.2s;
+  background-color: #a3a380;
+}
+
+.admin-mobile-nav li {
+  font-weight: 600;
+  padding: 10px;
+  padding-left: 20px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  background: #eef0ce;
+}
+
+.admin-mobile-nav li:hover {
+  transition: all 0.2s;
+  background-color: #a3a380;
+}
+
+.admin-content {
+  width: 100%;
+}
+
+.admin-content h5 {
+  color: #b35d62;
+}

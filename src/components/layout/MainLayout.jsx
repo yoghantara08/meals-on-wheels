@@ -6,11 +6,11 @@ import Navigation from "../navbar/Navigation";
 const MainLayout = ({ children }) => {
   return (
     <div className="main-layout">
-      <header>
+      <header className="head">
         <Navigation />
       </header>
-      <main className="container">{children}</main>
-      <footer>
+      <main>{children}</main>
+      <footer className="foot">
         <Footer />
       </footer>
     </div>
