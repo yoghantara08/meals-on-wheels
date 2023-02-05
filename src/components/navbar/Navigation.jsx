@@ -80,7 +80,7 @@ const Navigation = () => {
               </li>
               <li className="nav-item">
                 <Link
-                  to="/login"
+                  to="/register"
                   className="btn btn-darken text-whiten py-2 px-4"
                 >
                   Register
