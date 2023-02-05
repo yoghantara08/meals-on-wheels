@@ -10,7 +10,7 @@ const About = () => {
           <div class="text-center w-50 mx-auto">
             <h3>
               {" "}
-              What We <span>Do!</span>{" "}
+              What We <span className="fw-bold">Do!</span>{" "}
             </h3>
             <p>
               {" "}
