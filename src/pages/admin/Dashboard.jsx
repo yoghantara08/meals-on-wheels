@@ -6,7 +6,12 @@ import PartnerManagement from "./PartnerManagement";
 import UserManagement from "./UserManagement";
 
 const Dashboard = () => {
-  const [active, setActive] = useState("ORDER");
+  const adminDashboard = localStorage.getItem("admin-dashboard");
+
+  if (!adminDashboard) {
+    localStorage.setItem("admin-dashboard", "ORDER");
+  }
+  const [active, setActive] = useState(adminDashboard);
 
   return (
     <div className="d-md-flex admin-dashboard">

@@ -24,7 +24,7 @@ const MealsManagement = () => {
   }, [refresh]);
 
   return (
-    <main className="p-3 mt-2">
+    <div className="p-3 mt-2">
       <div className="d-flex justify-content-center align-items-center">
         <h2 className="fw-bold text-decoration-underline">Meals Management</h2>
       </div>
@@ -68,13 +68,13 @@ const MealsManagement = () => {
                 <td>
                   <Dropdown>
                     <Dropdown.Toggle variant="shade-yellow" id="dropdown-basic">
-                      <i class="fa-solid fa-pen-to-square"></i>
+                      <i className="fa-solid fa-pen-to-square"></i>
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu>
                       <Dropdown.Item>
                         <Link
-                          to="/meals"
+                          to={`/meals/${meal._id}`}
                           className="text-decoration-none text-darken"
                         >
                           Meal Details
@@ -101,7 +101,7 @@ const MealsManagement = () => {
           </tbody>
         </Table>
       </div>
-    </main>
+    </div>
   );
 };
 

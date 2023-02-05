@@ -34,7 +34,7 @@ const OrderManagement = () => {
   }, [refresh]);
 
   return (
-    <main className="p-3 mt-2">
+    <div className="p-3 mt-2">
       <div className="d-flex justify-content-center align-items-center">
         <h2 className="fw-bold text-decoration-underline">Order Management</h2>
       </div>
@@ -132,7 +132,7 @@ const OrderManagement = () => {
           </tbody>
         </Table>
       </div>
-    </main>
+    </div>
   );
 };
 
