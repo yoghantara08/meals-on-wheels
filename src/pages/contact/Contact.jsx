@@ -1,7 +1,6 @@
 import React from "react";
-import { aboutus2, contactus } from "../../assets";
+import { contactus, contactusbanner } from "../../assets";
 import MainLayout from "../../components/layout/MainLayout";
-import { aboutus1, contactusbanner } from "../../assets";
 
 const Contact = () => {
   return (
@@ -12,10 +11,13 @@ const Contact = () => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          paddingBottom: "130px"
+          paddingBottom: "130px",
         }}
       >
-        <img src={contactusbanner} className="banner-img img-fluid" alt="" 
+        <img
+          src={contactusbanner}
+          className="banner-img img-fluid"
+          alt=""
           style={{
             width: "100%",
           }}

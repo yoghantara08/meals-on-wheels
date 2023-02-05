@@ -5,7 +5,7 @@ import { banner, aboutus1 } from "../../assets";
 const About = () => {
   return (
     <MainLayout>
-      <section className="py-5">
+      <section className="pb-5">
         <div class="container pt-5">
           <div class="text-center w-50 mx-auto">
             <h3>
