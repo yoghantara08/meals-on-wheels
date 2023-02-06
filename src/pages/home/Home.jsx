@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
-import "../../assets/css/home.css";
-import MainLayout from "../../components/layout/MainLayout";
-import Banner from "../../assets/img/banner.jpg";
-import Form from "../../assets/img/form.png";
-import Delivery from "../../assets/img/delivery.png";
-import Delicious from "../../assets/img/delicious.png";
-import Food1 from "../../assets/img/food-1.jpg";
-import { listMeals } from "../../api/meal-api";
 import { Link } from "react-router-dom";
+import { listMeals } from "../../api/meal-api";
+import "../../assets/css/home.css";
+import Banner from "../../assets/img/banner.jpg";
+import Delicious from "../../assets/img/delicious.png";
+import Delivery from "../../assets/img/delivery.png";
+import Form from "../../assets/img/form.png";
+import MainLayout from "../../components/layout/MainLayout";
 
 const Home = () => {
   const [mealList, setMealList] = useState([]);
