@@ -1,5 +1,12 @@
 .profile {
   margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.profile-item {
+  max-width: 900px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .icon-edit {
@@ -10,4 +17,18 @@
 .order-meal-image {
   width: 150px;
   height: 110px;
+}
+
+.profile-parent-img {
+  width: 230px;
+  height: 230px;
+  max-width: 230px;
+  max-height: 230px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.profile-parent-img .profile-img-item {
+  width: 100%;
+  height: 100%;
 }

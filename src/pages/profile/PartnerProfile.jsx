@@ -18,6 +18,7 @@ const PartnerProfile = () => {
   useEffect(() => {
     getAssignedOrder(token, userId)
       .then((res) => {
+        console.log(res.data);
         setAssignedOrder(res.data);
       })
       .catch((err) => {

@@ -7,20 +7,20 @@ const ProfileCard = ({ image, name, email, address, phoneNumber }) => {
   return (
     <section className="profile">
       <div className="container">
-        <div className="profile-item w-75">
+        <div className="profile-item">
           <Row className="d-flex bg-shade-yellow justify-content-center align-items-center mt-3 p-4 rounded-4">
             <Col xs="12" md="4" className="profile-img">
-              <div className="parent-img">
+              <div className="profile-parent-img ">
                 <Image
                   src={image ? `http://localhost:8080/${image}` : userDefault}
                   fluid
-                  className="img-item d-block w-75 mx-auto"
+                  className="profile-img-item d-block "
                   alt={name}
                 />
               </div>
             </Col>
 
-            <Col xs="12" md="8" className="profile-content">
+            <Col xs="12" md="8" className="profile-content px-4">
               <div className="d-flex justify-content-between align-items-center">
                 <h3 className="text-darken fw-bold">{name}</h3>
                 <Link
