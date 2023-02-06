@@ -73,14 +73,29 @@ const Footer = () => {
         <Col className="pt-3 footer-bottom mt-2">
           <div className="bottom-item d-flex align-items-md-center flex-column">
             <div className="social-icon mb-3">
-              <a href="##" target="_blank" rel="noreferrer">
-                <img src={Facebook} alt="Icon" />
+              <a
+                href="##"
+                target="_blank"
+                rel="noreferrer"
+                className="text-decoration-none"
+              >
+                <i className="fab fa-facebook-f text-darken text-center"></i>
               </a>
-              <a href="##" target="_blank" rel="noreferrer">
-                <img src={Facebook} alt="Icon" />
+              <a
+                href="##"
+                target="_blank"
+                rel="noreferrer"
+                className="text-decoration-none"
+              >
+                <i className="fab fa-instagram text-darken text-center"></i>
               </a>
-              <a href="##" target="_blank" rel="noreferrer">
-                <img src={Facebook} alt="Icon" />
+              <a
+                href="##"
+                target="_blank"
+                rel="noreferrer"
+                className="text-decoration-none"
+              >
+                <i className="fab fa-twitter text-darken text-center"></i>
               </a>
             </div>
             <div className="copyright text-muted">
