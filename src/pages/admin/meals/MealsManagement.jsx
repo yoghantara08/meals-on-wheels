@@ -73,14 +73,12 @@ const MealsManagement = () => {
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu>
-                      <Dropdown.Item>
-                        <Link
-                          to={`/meals/${meal._id}`}
-                          className="text-decoration-none text-darken"
-                        >
-                          Meal Details
-                        </Link>
-                      </Dropdown.Item>
+                      <Link
+                        to={`/meals/${meal.mealName.toLowerCase()}/${meal._id}`}
+                        className="text-decoration-none text-darken dropdown-item"
+                      >
+                        Meal Details
+                      </Link>
                       <Dropdown.Item
                         onClick={() => {
                           setEditMeal(true);
