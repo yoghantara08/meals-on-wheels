@@ -12,7 +12,7 @@ const ProfileCard = ({ image, name, email, address, phoneNumber }) => {
             <Col xs="12" md="4" className="profile-img">
               <div className="parent-img">
                 <Image
-                  src={image ? image : userDefault}
+                  src={image ? `http://localhost:8080/${image}` : userDefault}
                   fluid
                   className="img-item d-block w-75 mx-auto"
                   alt={name}

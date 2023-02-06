@@ -73,7 +73,7 @@ const MemberProfile = () => {
                 <td>{order._id}</td>
                 <td>{order.orderStatus}</td>
                 <td>{order.meal.mealName}</td>
-                <td>{order.meal.mealName}</td>
+                <td>{order.meal.description}</td>
                 <td className="order-meal-image overflow-hidden">
                   <img
                     src={`http://localhost:8080/${order.meal.image}`}
@@ -109,7 +109,7 @@ const MemberProfile = () => {
                 <td>{order._id}</td>
                 <td>{order.orderStatus}</td>
                 <td>{order.meal.mealName}</td>
-                <td>{order.meal.mealName}</td>
+                <td>{order.meal.description}</td>
                 <td className="order-meal-image overflow-hidden">
                   <img
                     src={`http://localhost:8080/${order.meal.image}`}
