@@ -5,5 +5,15 @@ import Ovo from "./ovo.png";
 import Gopay from "./gopay.png";
 import Paypal from "./paypal.png";
 import ImgThankPage from "./img-thank-page.jpeg";
+import ProfileImage from "./user-default.png";
 
-export { Banner, Food1, Facebook, Ovo, Gopay, Paypal, ImgThankPage };
+export {
+  Banner,
+  Food1,
+  Facebook,
+  Ovo,
+  Gopay,
+  Paypal,
+  ImgThankPage,
+  ProfileImage,
+};

@@ -54,12 +54,6 @@
     line-height: 1;
     border: 1px solid $c-dark;
     transition: all 0.25s ease-in-out;
-
-    img {
-      width: 40%;
-      z-index: 1;
-      transition: 0.3s ease-in-out;
-    }
   }
 
   a::before {
