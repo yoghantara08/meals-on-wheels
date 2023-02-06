@@ -10,7 +10,6 @@ import MealsPage from "./meals/Meals";
 import MealDetailsPage from "./meals/MealDetails";
 import SearchMealsPage from "./meals/SearchMeal";
 import PartnershipPage from "./partnership/Partnership";
-import PartnerRegisterPage from "./partnership/PartnerRegister";
 import MemberPage from "./profile/MemberProfile";
 import RiderPage from "./profile/RiderProfile";
 import PartnerPage from "./profile/PartnerProfile";
@@ -29,7 +28,6 @@ export {
   MealDetailsPage,
   SearchMealsPage,
   PartnershipPage,
-  PartnerRegisterPage,
   MemberPage,
   RiderPage,
   PartnerPage,
