@@ -17,7 +17,7 @@ const AssignPartner = ({ show, onHide, orderId, refresh }) => {
       });
   }, [authCtx.token]);
 
-  const assignParter = (partnerId) => {
+  const assignPartner = (partnerId) => {
     assignOrderToPartner(authCtx.token, orderId, partnerId)
       .then((res) => {
         onHide();
@@ -58,7 +58,7 @@ const AssignPartner = ({ show, onHide, orderId, refresh }) => {
                 <p className="m-0 mb-1">{partner.companyName}</p>
                 <Button
                   className="btn-shade-yellow"
-                  onClick={() => assignParter(partner._id)}
+                  onClick={() => assignPartner(partner._id)}
                 >
                   Assign Partner
                 </Button>

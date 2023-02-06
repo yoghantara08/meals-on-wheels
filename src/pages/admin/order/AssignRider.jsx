@@ -19,8 +19,8 @@ const AssignRider = ({ show, onHide, orderId, refresh }) => {
       });
   }, [authCtx.token, users]);
 
-  const assignParter = (riderId) => {
-    assignOrderToRider(authCtx.token, orderId, riderId)
+  const assignRider = (userId) => {
+    assignOrderToRider(authCtx.token, orderId, userId)
       .then((res) => {
         onHide();
         refresh((prev) => (prev += 1));
@@ -61,7 +61,7 @@ const AssignRider = ({ show, onHide, orderId, refresh }) => {
                 <p className="m-0 mb-1">{rider.firstName}</p>
                 <Button
                   className="btn-shade-yellow"
-                  onClick={() => assignParter(rider._id)}
+                  onClick={() => assignRider(rider._id)}
                 >
                   Assign Rider
                 </Button>

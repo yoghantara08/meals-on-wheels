@@ -17,7 +17,7 @@ const LoginComp = () => {
     loginAPI(data.email, data.password)
       .then((res) => {
         authCtx.login(res.data.token);
-        authCtx.redirectLogin(authCtx.role);
+        authCtx.redirectLogin(res.data.role);
         reset();
       })
       .catch((err) => {
