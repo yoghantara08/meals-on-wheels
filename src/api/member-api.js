@@ -9,14 +9,14 @@ export const orderMeal = async (token, mealId, memberId) => {
 };
 
 // GET list on order meal :status on progress
-export const orderOnProgress = async (token, memberId) => {
+export const orderOnProgressMember = async (token, memberId) => {
   return await axios.get(`${MEMBER_URL}/order/${memberId}`, {
     headers: { Authorization: `Bearer ${token}` },
   });
 };
 
 // GET all complete ordered meals :status = "MEAL DELIVERED"
-export const orderComplete = async (token, memberId) => {
+export const orderCompleteMember = async (token, memberId) => {
   return await axios.get(`${MEMBER_URL}/order-complete/${memberId}`, {
     headers: { Authorization: `Bearer ${token}` },
   });

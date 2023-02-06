@@ -1,13 +1,15 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getMealDetails } from "../../api/meal-api";
+import { orderMeal } from "../../api/member-api";
 import MainLayout from "../../components/layout/MainLayout";
 import AuthContext from "../../context/auth-context";
 
 const MealDetails = () => {
   const [meal, setMeal] = useState({});
   const params = useParams();
-  const { isMember } = useContext(AuthContext);
+  const { isMember, token, userId } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getMealDetails(params.mealId)
@@ -18,6 +20,22 @@ const MealDetails = () => {
         console.log(err);
       });
   }, [params.mealId]);
+
+  const orderMealHandler = (mealId) => {
+    // eslint-disable-next-line no-restricted-globals
+    const isOk = confirm("Are you sure want to order this meal?");
+
+    if (isOk) {
+      orderMeal(token, mealId, userId)
+        .then((res) => {
+          alert(res.data.message);
+          navigate("/profile/member");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  };
 
   return (
     <MainLayout>
@@ -64,6 +82,9 @@ const MealDetails = () => {
                   (e.currentTarget.style.backgroundColor = "#D6CE93")
                 }
                 onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "")}
+                onClick={() => {
+                  orderMealHandler(meal._id);
+                }}
               >
                 Order Now
               </button>

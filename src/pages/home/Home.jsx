@@ -21,7 +21,7 @@ const Home = () => {
           </h5>
           <form action="/meals/search">
             <div className="d-flex search-meal bg-transparent border-white rounded">
-              <i class="fa-solid fa-magnifying-glass m-auto"></i>
+              <i className="fa-solid fa-magnifying-glass m-auto"></i>
               <input
                 className="w-100 bg-transparent text-white form-control shadow-none"
                 placeholder="Search meal"
