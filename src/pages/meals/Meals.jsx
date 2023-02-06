@@ -23,12 +23,7 @@ const Meals = () => {
       <div className="banner-meal">
         <img src={Banner} className="banner-img img-fluid" alt="Meal Banner" />
         <div className="banner-text text-white text-center">
-          <h1 className="fw-bold">
-            Meals <span className="fw-light">on </span>Wheels
-          </h1>
-          <h3 className="fw-normal">
-            Search for <span className="fw-bold">food</span>
-          </h3>
+          <h1 className="fw-bold">Meals on Wheels</h1>
           <form action="/meals/search">
             <div className="d-flex search-meal bg-transparent border-white rounded">
               <i class="fa-solid fa-magnifying-glass m-auto"></i>
@@ -45,7 +40,7 @@ const Meals = () => {
       <div className="bestmeals py-5 text-center">
         <h1>Our Best Food</h1>
         <div className="d-flex justify-content-center gap-5 flex-wrap">
-          {mealsList.slice(0, 2).map((meal) => (
+          {mealsList.slice(0, 3).map((meal) => (
             <div className="card card-meal" key={meal._id}>
               <img
                 src={`http://localhost:8080/${meal.image}`}

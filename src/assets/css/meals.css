@@ -16,11 +16,11 @@ banner-text {
 
 .bestmeals .card,
 .menus .card {
-  width: 18rem;
+  width: 15rem;
 }
 
 .bestmeals .card img,
 .menus .card img {
-  height: 18rem;
+  height: 15rem;
   object-fit: cover;
 }

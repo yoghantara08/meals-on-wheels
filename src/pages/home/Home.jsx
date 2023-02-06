@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../../assets/css/home.css";
 import MainLayout from "../../components/layout/MainLayout";
 import Banner from "../../assets/img/banner.jpg";
@@ -6,19 +6,29 @@ import Form from "../../assets/img/form.png";
 import Delivery from "../../assets/img/delivery.png";
 import Delicious from "../../assets/img/delicious.png";
 import Food1 from "../../assets/img/food-1.jpg";
+import { listMeals } from "../../api/meal-api";
+import { Link } from "react-router-dom";
 
 const Home = () => {
+  const [mealList, setMealList] = useState([]);
+
+  useEffect(() => {
+    listMeals()
+      .then((res) => {
+        setMealList(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
     <MainLayout>
       <div className="banner-meal">
         <img src={Banner} className="banner-img img-fluid" alt="Meal Banner" />
         <div className="banner-text text-white text-center">
-          <h1 className="fw-normal">
-            Welcome to <span className="fw-bold">Meals On Wheels</span>
-          </h1>
-          <h5 className="fw-normal">
-            Search for <span className="fw-bold">food</span>
-          </h5>
+          <h1 className="fw-semibold">Welcome to Meals On Wheels</h1>
+          <h5 className="fw-normal">Search for food</h5>
           <form action="/meals/search">
             <div className="d-flex search-meal bg-transparent border-white rounded">
               <i className="fa-solid fa-magnifying-glass m-auto"></i>
@@ -32,7 +42,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="why-us py-5 px-3 text-center">
+      <div className="why-us py-5 px-3 text-center container">
         <h1 className="fw-normal">
           Why <span className="fw-bold">Us?</span>
         </h1>
@@ -87,27 +97,21 @@ const Home = () => {
       <div className="bestfood py-5 text-center">
         <h1>Our Best Food</h1>
         <div className="d-flex justify-content-center gap-5 flex-wrap">
-          <div className="card card-meal">
-            <img src={Food1} className="card-img-top" alt="..." />
-            <div className="card-body">
-              <h5 className="card-title">Menu Name</h5>
-              <button className="btn btn-primary">See Details</button>
+          {mealList.slice(0, 3).map((meal) => (
+            <div className="card card-meal" key={meal._id}>
+              <img
+                src={`http://localhost:8080/${meal.image}`}
+                className="card-img-top"
+                alt={meal.mealName}
+              />
+              <div className="card-body">
+                <h5 className="card-title">{meal.mealName}</h5>
+                <Link to={`/meals/${meal.mealName.toLowerCase()}/${meal._id}`}>
+                  <button className="btn btn-primary">See Details</button>
+                </Link>
+              </div>
             </div>
-          </div>
-          <div className="card card-meal">
-            <img src={Food1} className="card-img-top" alt="..." />
-            <div className="card-body">
-              <h5 className="card-title">Menu Name</h5>
-              <button className="btn btn-primary">See Details</button>
-            </div>
-          </div>
-          <div className="card card-meal">
-            <img src={Food1} className="card-img-top" alt="..." />
-            <div className="card-body">
-              <h5 className="card-title">Menu Name</h5>
-              <button className="btn btn-primary">See Details</button>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </MainLayout>

@@ -9,3 +9,9 @@
 .head {
   min-height: 76.4px;
 }
+
+@media (max-width: 768px) {
+  .head {
+    min-height: 65px;
+  }
+}
