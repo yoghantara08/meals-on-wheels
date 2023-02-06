@@ -1,8 +1,8 @@
 import React from "react";
-import { Row, Col, Image } from "react-bootstrap";
+import { Col, Image, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-import { Food1, Facebook } from "../../assets/img";
+import { Food1 } from "../../assets/img";
 import "../../assets/scss/index.scss";
 
 const Footer = () => {

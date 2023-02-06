@@ -40,7 +40,7 @@ const AssignRider = ({ show, onHide, orderId, refresh }) => {
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          Available Partners
+          Available Rider
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>

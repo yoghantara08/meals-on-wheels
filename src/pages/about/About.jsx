@@ -1,7 +1,6 @@
 import React from "react";
-import { aboutus2 } from "../../assets";
+import { aboutus1, aboutus2 } from "../../assets";
 import MainLayout from "../../components/layout/MainLayout";
-import { banner, aboutus1 } from "../../assets";
 const About = () => {
   return (
     <MainLayout>
