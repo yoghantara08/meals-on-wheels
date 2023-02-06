@@ -21,6 +21,7 @@ const Register = () => {
     formData.append("age", data.age);
     formData.append("address", data.address);
     formData.append("phoneNumber", data.phoneNumber);
+    formData.append("image", data.image[0]);
 
     userRegister(formData)
       .then((res) => {
@@ -150,6 +151,14 @@ const Register = () => {
                     aria-describedby="textHelp"
                     placeholder="Address*"
                     {...register("address", { required: true })}
+                  />
+                </div>
+
+                <div className="mb-3">
+                  <input
+                    type="file"
+                    className="form-control form-field shadow-none"
+                    {...register("image")}
                   />
                 </div>
 

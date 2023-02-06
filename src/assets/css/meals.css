@@ -1,29 +1,26 @@
-banner{
-    background-color: black;
+banner {
+  background-color: black;
 }
 
-banner img{
-    opacity: 0.4 !important;
+banner img {
+  opacity: 0.4 !important;
 }
 
-banner-text{
-    width: 40vw;
+banner-text {
+  width: 40vw;
 }
 
-.bestmeals{
-    background-color: #D6CE93;
+.bestmeals {
+  background-color: #d6ce93;
 }
 
-.bestmeals .card, .menus .card{
-    width: 18rem;
+.bestmeals .card,
+.menus .card {
+  width: 18rem;
 }
 
 .bestmeals .card img,
-.menus .card img{
-    height: 18rem;
-    object-fit: cover;
-}
-
-.menus img{
-    width: 
+.menus .card img {
+  height: 18rem;
+  object-fit: cover;
 }

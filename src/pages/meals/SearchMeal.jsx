@@ -1,9 +1,22 @@
-import React from "react";
-import { aboutus2, contactus } from "../../assets";
+import React, { useEffect, useState } from "react";
+import { Link, useSearchParams } from "react-router-dom";
+import { searchMeal } from "../../api/meal-api";
 import MainLayout from "../../components/layout/MainLayout";
-import { aboutus1, contactusbanner, banner } from "../../assets";
 
 const SearchMeal = () => {
+  const [mealsList, setMealsList] = useState([]);
+  const [searchParams] = useSearchParams();
+
+  useEffect(() => {
+    searchMeal(searchParams.get("value"))
+      .then((res) => {
+        setMealsList(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [searchParams]);
+
   return (
     <MainLayout>
       <section>
@@ -12,39 +25,39 @@ const SearchMeal = () => {
             <h3>
               Search Another <span className="fw-bold">Food!</span>
             </h3>
-            <div className="d-flex search  pt-3" style={{ height: "60px" }}>
-              <i className="fa-solid fa-magnifying-glass m-auto"></i>
+
+            <form className="d-flex search pt-3">
               <input
-                className="w-100 bg-transparent"
+                className="w-100 bg-transparent ps-4 form-control"
                 style={{ color: "black", borderRadius: "5px" }}
-                placeholder="Your text here"
+                placeholder="Search for meal"
                 type="text"
+                name="value"
               />
-            </div>
+            </form>
           </div>
           <div class="text-center w-50 mx-auto pt-5">
             <h3>Result Of Food Name</h3>
           </div>
-          <div
-            class="d-flex justify-content-center align-items-center"
-            style={{ height: "100vh", paddingBottom: "150px" }}
-          >
-            <div
-              class="d-flex flex-column text-center p-5 border rounded bg-primary shadow-sm pt-"
-              style={{ width: "80vh", backgroundColor: "#A3A380" }}
-            >
-              <img src={banner} alt="" />
-              <h2 class="font-weight-bold text-primary text-lg pt-3">
-                Name Of The Menu
-              </h2>
-              <i class="fas fa-warehouse fa-2x text-primary"></i>
-              <button
-                type="submit"
-                className="btn btn-primary rounded-0 mt-4"
-                style={{ backgroundColor: "#D6CE93" }}
-              >
-                See Detail
-              </button>
+          <div className="menus pb-5 pt-2 text-center">
+            <div className="d-flex justify-content-center gap-5 flex-wrap">
+              {mealsList.map((meal) => (
+                <div className="card card-meal" key={meal._id}>
+                  <img
+                    src={`http://localhost:8080/${meal.image}`}
+                    className="card-img-top"
+                    alt={meal.mealName}
+                  />
+                  <div className="card-body">
+                    <h5 className="card-title">{meal.mealName}</h5>
+                    <Link
+                      to={`/meals/${meal.mealName.toLowerCase()}/${meal._id}`}
+                    >
+                      <button className="btn btn-primary">See Details</button>
+                    </Link>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

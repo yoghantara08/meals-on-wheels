@@ -1,20 +1,37 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { getMealDetails } from "../../api/meal-api";
 import MainLayout from "../../components/layout/MainLayout";
-import { aboutus2 } from "../../assets";
+import AuthContext from "../../context/auth-context";
 
 const MealDetails = () => {
+  const [meal, setMeal] = useState({});
+  const params = useParams();
+  const { isMember } = useContext(AuthContext);
+
+  useEffect(() => {
+    getMealDetails(params.mealId)
+      .then((res) => {
+        setMeal(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [params.mealId]);
+
   return (
     <MainLayout>
       <div class="container pt-5">
         <div class="row">
           <div class="col-sm-6 pt-5">
             <img
-              src={aboutus2}
-              alt="Meals"
+              src={`http://localhost:8080/${meal.image}`}
+              alt={meal.mealName}
               className="img-fluid"
               style={{
                 width: "600px",
                 height: "400px",
+                borderRadius: "10px",
               }}
             />
           </div>
@@ -23,40 +40,34 @@ const MealDetails = () => {
               className=""
               style={{ paddingTop: " 60px", paddingRight: "40px" }}
             >
-              <h3 className="">Garlic Butter Steak</h3>
+              <h3 className="">{meal.mealName}</h3>
               <p className=" ">
                 <h5>Ingredients:</h5>
-                Steak cut of your choice (e.g. ribeye, sirloin, filet) <br />{" "}
-                Salt Freshly ground black pepper Olive oil or melted butter
-                Garlic <br /> Fresh herbs (optional, such as thyme, rosemary, or
-                basil)
+                <span>{meal.ingredients}</span>
               </p>
               <p className=" ">
                 <h5>Description:</h5>
-                Meals on Wheels is not just a meal delivery service, but also a
-                caring community. We're excited to improve the quality of life
-                for seniors and individuals with limitations through our meal
-                delivery program. At Meals on Wheels, we strive to provide not
-                only hot meals, but also warm smiles and friendly visits to
-                brighten our clients' day.
+                <span>{meal.description}</span>
               </p>
             </p>
-            <button
-              className="btn mt-3 mx-auto d-block "
-              style={{
-                border: "5px solid #D6CE93",
-                padding: "10px 20px",
-                borderRadius: "20px",
-                width: "400px",
-                height: "70px",
-              }}
-              onMouseOver={(e) =>
-                (e.currentTarget.style.backgroundColor = "#D6CE93")
-              }
-              onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "")}
-            >
-              Order Now
-            </button>
+            {isMember && (
+              <button
+                className="btn mt-3 d-block fw-bold"
+                style={{
+                  border: "5px solid #D6CE93",
+                  padding: "10px 20px",
+                  borderRadius: "20px",
+                  width: "400px",
+                  height: "70px",
+                }}
+                onMouseOver={(e) =>
+                  (e.currentTarget.style.backgroundColor = "#D6CE93")
+                }
+                onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "")}
+              >
+                Order Now
+              </button>
+            )}
           </div>
         </div>
       </div>
