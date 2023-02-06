@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
-import { Container, Row, Col, Image } from "react-bootstrap";
+import { Col, Container, Image, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { loginAPI } from "../../api/auth-api";
 
 import { Food1 } from "../../assets/img";
@@ -11,26 +11,14 @@ import AuthContext from "../../context/auth-context";
 const LoginComp = () => {
   const { register, handleSubmit, reset } = useForm();
   const authCtx = useContext(AuthContext);
-  const navigate = useNavigate();
   const [invalid, setInvalid] = useState(false);
 
   const onSubmitHandler = (data) => {
     loginAPI(data.email, data.password)
       .then((res) => {
         authCtx.login(res.data.token);
+        authCtx.redirectLogin(authCtx.role);
         reset();
-        if (res.data.role === "ADMIN") {
-          navigate("/admin");
-        }
-        if (res.data.role === "MEMBER") {
-          navigate("/profile/member");
-        }
-        if (res.data.role === "RIDER") {
-          navigate("/profile/rider");
-        }
-        if (res.data.role === "PARTNER") {
-          navigate("/profile/partner");
-        }
       })
       .catch((err) => {
         setInvalid(true);

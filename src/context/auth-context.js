@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { getProfile } from "../api/profile-api";
 
 // Create Context API
@@ -12,6 +13,7 @@ const AuthContext = React.createContext({
   isRider: false,
   isPartner: false,
   isLoggedIn: false,
+  redirectLogin: (role) => {},
   login: (token) => {},
   logout: () => {},
 });
@@ -43,6 +45,7 @@ export const AuthContextProvider = (props) => {
   const [isRider, setIsRider] = useState(false);
   const [isPartner, setIsPartner] = useState(false);
   const [profile, setProfile] = useState({});
+  const navigate = useNavigate();
 
   // Check Token (!! = convert to Boolean)
   const userIsLoggedIn = !!token;
@@ -100,6 +103,21 @@ export const AuthContextProvider = (props) => {
     localStorage.setItem("token", token);
   };
 
+  const redirectHandler = (role) => {
+    if (role === "ADMIN") {
+      navigate("/admin");
+    }
+    if (role === "MEMBER") {
+      navigate("/profile/member");
+    }
+    if (role === "RIDER") {
+      navigate("/profile/rider");
+    }
+    if (role === "PARTNER") {
+      navigate("/profile/partner");
+    }
+  };
+
   // Context Value
   const contextValue = {
     token: token,
@@ -111,6 +129,7 @@ export const AuthContextProvider = (props) => {
     isRider: isRider,
     isPartner: isPartner,
     isLoggedIn: userIsLoggedIn,
+    redirectLogin: redirectHandler,
     login: loginHandler,
     logout: logoutHandler,
   };
