@@ -77,7 +77,7 @@ const Register = () => {
                     <input
                       type="text"
                       className="form-control form-field shadow-none"
-                      id="exampleInputText"
+                      id="exampleInputText1"
                       aria-describedby="textHelp"
                       placeholder="First Name*"
                       {...register("firstName", { required: true })}
@@ -88,7 +88,7 @@ const Register = () => {
                     <input
                       type="text"
                       className="form-control form-field shadow-none"
-                      id="exampleInputText"
+                      id="exampleInputText2"
                       aria-describedby="textHelp"
                       placeholder="Last Name"
                       {...register("lastName")}
@@ -125,7 +125,7 @@ const Register = () => {
                   <input
                     type="text"
                     className="form-control form-field shadow-none"
-                    id="exampleInputText"
+                    id="exampleInputText3"
                     aria-describedby="textHelp"
                     placeholder="Age*"
                     {...register("age", { required: true })}
@@ -136,7 +136,7 @@ const Register = () => {
                   <input
                     type="text"
                     className="form-control form-field shadow-none"
-                    id="exampleInputText"
+                    id="exampleInputText4"
                     aria-describedby="textHelp"
                     placeholder="Phone number*"
                     {...register("phoneNumber", { required: true })}
@@ -147,7 +147,7 @@ const Register = () => {
                   <input
                     type="text"
                     className="form-control form-field shadow-none"
-                    id="exampleInputText"
+                    id="exampleInputText5"
                     aria-describedby="textHelp"
                     placeholder="Address*"
                     {...register("address", { required: true })}
@@ -155,11 +155,20 @@ const Register = () => {
                 </div>
 
                 <div className="mb-3">
-                  <input
-                    type="file"
-                    className="form-control form-field shadow-none"
-                    {...register("image")}
-                  />
+                  <div className="input-group custom-file-button">
+                    <label
+                      className="input-group-text form-field"
+                      for="inputGroupFile"
+                    >
+                      Choose File
+                    </label>
+                    <input
+                      type="file"
+                      className="form-control form-field shadow-none"
+                      id="inputGroupFile"
+                      {...register("image")}
+                    />
+                  </div>
                 </div>
 
                 <div className="d-flex justify-content-center align-items-center mt-4 my-3">

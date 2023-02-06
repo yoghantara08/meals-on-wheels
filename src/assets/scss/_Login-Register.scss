@@ -8,7 +8,7 @@
 }
 
 .img-left-regis {
-  height: 80vh;
+  height: 87vh;
 
   .img-regis {
     height: 100%;
@@ -31,6 +31,17 @@
   padding: 0.8rem 1.5rem;
   border: 1px solid #a9a9a9 !important;
   border-radius: 15px;
+}
+
+.custom-file-button {
+  input[type="file"] {
+    &::-webkit-file-upload-button {
+      display: none;
+    }
+    &::file-selector-button {
+      display: none;
+    }
+  }
 }
 
 .btn-register,
