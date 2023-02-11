@@ -70,11 +70,11 @@ const OrderManagement = () => {
             {onProgressOrder.map((order) => (
               <tr key={order._id}>
                 <td>{order._id}</td>
-                <td>{order.meal.mealName}</td>
-                <td>{order.orderStatus}</td>
-                <td>{order.member?.firstName}</td>
-                <td>{order.partner?.companyName || "-"}</td>
-                <td>{order.rider?.firstName || "-"}</td>
+                <td>{order?.meal?.mealName || "-"}</td>
+                <td>{order?.orderStatus || "-"}</td>
+                <td>{order?.member?.firstName || "-"}</td>
+                <td>{order?.partner?.companyName || "-"}</td>
+                <td>{order?.rider?.firstName || "-"}</td>
                 <td>
                   {order.orderStatus === "PENDING" && (
                     <div
@@ -122,12 +122,12 @@ const OrderManagement = () => {
           <tbody>
             {orderComplete.map((order) => (
               <tr key={order._id}>
-                <td>{order._id}</td>
-                <td>{order.meal.mealName || "-"}</td>
-                <td>{order.orderStatus}</td>
-                <td>{order.member.firstName || "-"}</td>
-                <td>{order.partner.companyName || "-"}</td>
-                <td>{order.rider.firstName || "-"}</td>
+                <td>{order?._id}</td>
+                <td>{order?.meal?.mealName || "-"}</td>
+                <td>{order?.orderStatus || "-"}</td>
+                <td>{order?.member?.firstName || "-"}</td>
+                <td>{order?.partner?.companyName || "-"}</td>
+                <td>{order?.rider?.firstName || "-"}</td>
               </tr>
             ))}
           </tbody>
