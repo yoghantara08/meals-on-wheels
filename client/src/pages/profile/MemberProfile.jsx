@@ -9,6 +9,7 @@ import {
   orderOnProgressMember,
 } from "../../api/member-api";
 import { Link } from "react-router-dom";
+import { BASE_URL } from "../../api/constants";
 
 const MemberProfile = () => {
   const { profile, token, userId } = useContext(AuthContext);
@@ -76,7 +77,7 @@ const MemberProfile = () => {
                 <td>{order.meal.description}</td>
                 <td className="order-meal-image overflow-hidden">
                   <img
-                    src={`http://localhost:8080/${order.meal.image}`}
+                    src={`${BASE_URL}/${order.meal.image}`}
                     alt={order.meal.mealName}
                     className="w-100 h-100 img-thumbnail"
                   />
@@ -112,7 +113,7 @@ const MemberProfile = () => {
                 <td>{order.meal.description}</td>
                 <td className="order-meal-image overflow-hidden">
                   <img
-                    src={`http://localhost:8080/${order.meal.image}`}
+                    src={`${BASE_URL}/${order.meal.image}`}
                     alt={order.meal.mealName}
                     className="w-100 h-100 img-thumbnail"
                   />

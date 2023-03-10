@@ -1,9 +1,9 @@
-import axios from "axios";
+import { API } from "./config";
 import { DONATION_URL } from "./constants";
 
 // POST donate
 export const donateAPI = async (data) => {
-  return await axios.post(`${DONATION_URL}`, {
+  return await API.post(`${DONATION_URL}`, {
     firstName: data.firstName,
     lastName: data.lastName,
     email: data.email,
@@ -15,5 +15,5 @@ export const donateAPI = async (data) => {
 
 // GET donation list
 export const donationList = async () => {
-  return await axios.get(`${DONATION_URL}`);
+  return await API.get(`${DONATION_URL}`);
 };

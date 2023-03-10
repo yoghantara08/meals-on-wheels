@@ -38,7 +38,7 @@ if (!fs.existsSync(dir)) {
 } else {
   // Image upload handler
   app.use(upload);
-  app.use("/images", express.static(path.join(__dirname, "images")));
+  app.use("/images", express.static(path.join(__dirname, "/images/")));
 }
 
 // Routes

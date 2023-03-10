@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import { assignOrderToPartner, getPartners } from "../../../api/admin-api";
+import { BASE_URL } from "../../../api/constants";
 import AuthContext from "../../../context/auth-context";
 
 const AssignPartner = ({ show, onHide, orderId, refresh }) => {
@@ -50,7 +51,7 @@ const AssignPartner = ({ show, onHide, orderId, refresh }) => {
             >
               <div className="admin-partner-image">
                 <img
-                  src={`http://localhost:8080/${partner.image}`}
+                  src={`${BASE_URL}/${partner.image}`}
                   alt={partner.companyName}
                 />
               </div>

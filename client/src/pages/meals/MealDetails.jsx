@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { BASE_URL } from "../../api/constants";
 import { getMealDetails } from "../../api/meal-api";
 import { orderMeal } from "../../api/member-api";
 import MainLayout from "../../components/layout/MainLayout";
@@ -43,7 +44,7 @@ const MealDetails = () => {
         <div class="row">
           <div class="col-sm-6 pt-5">
             <img
-              src={`http://localhost:8080/${meal.image}`}
+              src={`${BASE_URL}/${meal.image}`}
               alt={meal.mealName}
               className="img-fluid"
               style={{

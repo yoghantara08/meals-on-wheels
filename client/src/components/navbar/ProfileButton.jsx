@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { BASE_URL } from "../../api/constants";
 import { userDefault } from "../../assets";
 import AuthContext from "../../context/auth-context";
 
@@ -39,11 +40,7 @@ const ProfileButton = () => {
         >
           <div className="nav-account me-2">
             <img
-              src={
-                profile.image
-                  ? `http://localhost:8080/${profile.image}`
-                  : userDefault
-              }
+              src={profile.image ? `${BASE_URL}/${profile.image}` : userDefault}
               alt="User Account"
             />
           </div>

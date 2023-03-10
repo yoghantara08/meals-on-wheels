@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import { assignOrderToRider, getUsers } from "../../../api/admin-api";
+import { BASE_URL } from "../../../api/constants";
 import AuthContext from "../../../context/auth-context";
 
 const AssignRider = ({ show, onHide, orderId, refresh }) => {
@@ -51,10 +52,7 @@ const AssignRider = ({ show, onHide, orderId, refresh }) => {
               className="d-flex align-items-center mb-3 col-6"
             >
               <div className="admin-partner-image">
-                <img
-                  src={`http://localhost:8080/${rider.image}`}
-                  alt={rider.firstName}
-                />
+                <img src={`${BASE_URL}/${rider.image}`} alt={rider.firstName} />
               </div>
 
               <div>

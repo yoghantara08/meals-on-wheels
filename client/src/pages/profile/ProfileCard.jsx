@@ -1,6 +1,7 @@
 import React from "react";
 import { Col, Image, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { BASE_URL } from "../../api/constants";
 import { userDefault } from "../../assets";
 
 const ProfileCard = ({ image, name, email, address, phoneNumber }) => {
@@ -12,7 +13,7 @@ const ProfileCard = ({ image, name, email, address, phoneNumber }) => {
             <Col xs="12" md="4" className="profile-img">
               <div className="profile-parent-img ">
                 <Image
-                  src={image ? `http://localhost:8080/${image}` : userDefault}
+                  src={image ? `${BASE_URL}/${image}` : userDefault}
                   fluid
                   className="profile-img-item d-block "
                   alt={name}

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
+import { BASE_URL } from "../../api/constants";
 import { searchMeal } from "../../api/meal-api";
 import MainLayout from "../../components/layout/MainLayout";
 
@@ -44,7 +45,7 @@ const SearchMeal = () => {
               {mealsList.map((meal) => (
                 <div className="card card-meal" key={meal._id}>
                   <img
-                    src={`http://localhost:8080/${meal.image}`}
+                    src={`${BASE_URL}/${meal.image}`}
                     className="card-img-top"
                     alt={meal.mealName}
                   />

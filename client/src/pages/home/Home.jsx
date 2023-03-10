@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { BASE_URL } from "../../api/constants";
 import { listMeals } from "../../api/meal-api";
 import "../../assets/css/home.css";
 import Banner from "../../assets/img/banner.jpg";
@@ -99,7 +100,7 @@ const Home = () => {
           {mealList.slice(0, 3).map((meal) => (
             <div className="card card-meal" key={meal._id}>
               <img
-                src={`http://localhost:8080/${meal.image}`}
+                src={`${BASE_URL}/${meal.image}`}
                 className="card-img-top"
                 alt={meal.mealName}
               />

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { BASE_URL } from "../../api/constants";
 import { listMeals } from "../../api/meal-api";
 import "../../assets/css/meals.css";
 import Banner from "../../assets/img/banner-meal.jpg";
@@ -43,7 +44,7 @@ const Meals = () => {
           {mealsList.slice(0, 3).map((meal) => (
             <div className="card card-meal" key={meal._id}>
               <img
-                src={`http://localhost:8080/${meal.image}`}
+                src={`${BASE_URL}/${meal.image}`}
                 className="card-img-top"
                 alt={meal.mealName}
               />
@@ -64,7 +65,7 @@ const Meals = () => {
           {mealsList.map((meal) => (
             <div className="card card-meal" key={meal._id}>
               <img
-                src={`http://localhost:8080/${meal.image}`}
+                src={`${BASE_URL}/${meal.image}`}
                 className="card-img-top"
                 alt={meal.mealName}
               />
