@@ -26,20 +26,9 @@ app.use(cors());
 // Parse JSON Data
 app.use(bodyParser.json());
 
-// Check if images directory exist, if not then create one
-const dir = "./images";
-if (!fs.existsSync(dir)) {
-  fs.mkdir(path.join(__dirname, "images"), (err) => {
-    if (err) {
-      console.log(err);
-    }
-    console.log("Directory created");
-  });
-} else {
-  // Image upload handler
-  app.use(upload);
-  app.use("/images", express.static(path.join(__dirname, "public")));
-}
+// Image upload handler
+app.use(upload);
+app.use("/images", express.static(path.join(__dirname, "public")));
 
 // Routes
 app.use("/api/admin", adminRoutes);
